@@ -181,8 +181,8 @@ public class BreakpointStoreOnCache implements DownloadStore {
         for (int i = 0; i < unStoredSize; i++) {
             final IdentifiedTask another = unStoredTasks.valueAt(i);
             if (another == null) continue;
-            Log.e("mp3","taskurll: " + task.getUrl());
-            Log.e("mp3","anotherurll: " + another.getUrl());
+            Log.e("mp3","taskur: " + task.getUrl());
+            Log.e("mp3","anotherur: " + another.getUrl());
             if (another.compareIgnoreId(task)) return another.getId();
         }
 
