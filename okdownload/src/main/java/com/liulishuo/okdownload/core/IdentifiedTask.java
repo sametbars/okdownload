@@ -18,6 +18,7 @@ package com.liulishuo.okdownload.core;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.io.File;
 
@@ -37,6 +38,10 @@ public abstract class IdentifiedTask {
     @Nullable public abstract String getFilename();
 
     public boolean compareIgnoreId(IdentifiedTask another) {
+
+        Log.e("mp3","geturl: " + getUrl());
+        Log.e("mp3","another url: " + another.getUrl());
+
         if (!getUrl().equals(another.getUrl())) return false;
 
         if (getUrl().equals(EMPTY_URL) || getParentFile().equals(EMPTY_FILE)) return false;
