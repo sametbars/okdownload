@@ -18,6 +18,7 @@ package com.liulishuo.okdownload.core.breakpoint;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.liulishuo.okdownload.DownloadTask;
@@ -180,6 +181,8 @@ public class BreakpointStoreOnCache implements DownloadStore {
         for (int i = 0; i < unStoredSize; i++) {
             final IdentifiedTask another = unStoredTasks.valueAt(i);
             if (another == null) continue;
+            Log.e("mp3","taskurll: " + task.getUrl());
+            Log.e("mp3","anotherurll: " + another.getUrl());
             if (another.compareIgnoreId(task)) return another.getId();
         }
 
