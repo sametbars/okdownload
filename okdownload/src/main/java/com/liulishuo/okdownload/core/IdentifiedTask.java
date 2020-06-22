@@ -38,21 +38,22 @@ public abstract class IdentifiedTask {
     @Nullable public abstract String getFilename();
 
     public boolean compareIgnoreId(IdentifiedTask another) {
+        try {
+            if (!getUrl().equals(another.getUrl())) return false;
 
-        Log.e("mp3","geturl: " + getUrl());
-        Log.e("mp3","another url: " + another.getUrl());
+            if (getUrl().equals(EMPTY_URL) || getParentFile().equals(EMPTY_FILE)) return false;
 
-        if (!getUrl().equals(another.getUrl())) return false;
+            if (getProvidedPathFile().equals(another.getProvidedPathFile())) return true;
 
-        if (getUrl().equals(EMPTY_URL) || getParentFile().equals(EMPTY_FILE)) return false;
+            if (!getParentFile().equals(another.getParentFile())) return false;
 
-        if (getProvidedPathFile().equals(another.getProvidedPathFile())) return true;
-
-        if (!getParentFile().equals(another.getParentFile())) return false;
-
-        // cover the case of filename is provided by response.
-        final String filename = getFilename();
-        final String anotherFilename = another.getFilename();
-        return anotherFilename != null && filename != null && anotherFilename.equals(filename);
+            // cover the case of filename is provided by response.
+            final String filename = getFilename();
+            final String anotherFilename = another.getFilename();
+            return anotherFilename != null && anotherFilename.equals(filename);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
