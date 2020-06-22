@@ -31,6 +31,7 @@ public abstract class IdentifiedTask {
 
     @NonNull public abstract String getUrl();
 
+
     @NonNull protected abstract File getProvidedPathFile();
 
     @NonNull public abstract File getParentFile();

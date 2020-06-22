@@ -183,6 +183,10 @@ public class BreakpointStoreOnCache implements DownloadStore {
             if (another == null) continue;
             Log.e("mp3","taskur: " + task.getUrl());
             Log.e("mp3","anotherur: " + another.getUrl());
+
+
+
+
             if (another.compareIgnoreId(task)) return another.getId();
         }
 
